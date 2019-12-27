@@ -35,7 +35,7 @@ public class EmployeeController
     }
  
     @PostMapping
-    public ResponseEntity<EmployeeEntity> createOrUpdateEmployee(EmployeeEntity employee)
+    public ResponseEntity<EmployeeEntity> createOrUpdateEmployee(@RequestBody EmployeeEntity employee)
                                                     throws RecordNotFoundException {
         EmployeeEntity updated = service.createOrUpdateEmployee(employee);
         return new ResponseEntity<EmployeeEntity>(updated, new HttpHeaders(), HttpStatus.OK);

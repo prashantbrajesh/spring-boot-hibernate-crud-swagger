@@ -1,11 +1,8 @@
 package com.howtodoinjava.demo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="TBL_EMPLOYEES")
@@ -23,6 +20,19 @@ public class EmployeeEntity {
     
     @Column(name="email", nullable=false, length=200)
     private String email;
+
+
+
+	@OneToMany
+    private Set<Address> address = new HashSet<>();
+
+	public Set<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(Set<Address> address) {
+		this.address = address;
+	}
     
     public Long getId() {
 		return id;
